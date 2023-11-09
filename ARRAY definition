@@ -1,4 +1,69 @@
-An array is a fixed-size sequential collection of elements of same data type in 
+1]An array is a fixed-size sequential collection of elements of same data type in 
 continuous memory location.
 • The elements of an array are referenced by an index (also known as subscript).
 • Types of Arrays: one dimensional and multidimensional.
+
+
+2]ARRAY DECLARATION-
+SYNTAX: datatype array_name[size];//STATIC  MEMORY ALLOCATION done in stack
+data_type *array_name = new data_type[size];//DYNAMIC MEMORY ALLOCATION done in heap 
+
+eg:  int a[5];//array'a' declaration
+this is the static memory allocation of array 'a'
+eg:  int*a=new int[n];//dynamic memory allocation
+----------
+CODE:#include <iostream>
+using namespace std;
+int main() {
+    int n,i;
+    cout<<"enter the size:";
+    cin>>n;
+ int*a=new int[n];
+ cout<<"Array initialization:"<<endl;
+ for(i=0;i<n;i++){
+     cout<<"Enter the elemnets:";
+     cin>>a[i];
+ }
+ for(i=0;i<n;i++){
+cout<<"\t"<<a[i];}
+ delete []a;
+  return 0;
+}
+
+int* a: Declares a pointer to an integer.
+new int[n]: Allocates a block of memory for an array of integers of size n.
+The pointer variable a is assigned the address of the first element of the dynamically allocated array.
+(in the heap)
+Just remember to later use delete[] a; to free up the allocated memory when you're done using it.
+
+NOTE:The delete[] statement should be outside the braces, as it's used to free up the dynamically allocated memory once you're done using it.
+If you place delete[] a; inside the braces, the memory would be deallocated prematurely, and you might end up with undefined behavior 
+if you try to access a after it has been deleted.
+
+IN THE NUTSHELL
+1.Memory Allocation: int* a = new int[n]; allocates memory for an integer array on the heap.
+2.Array Initialization: The array is initialized inside the braces.
+3.Memory Deallocation: delete[] a; should be placed outside the braces to ensure that the memory is deallocated after you've finished using the array.
+
+--------
+
+3]ARRAY INITIALIZATION
+SYNTAX: datatype array_name[size]={element1,element2,element3..};
+eg:  int a[5]={1,2,3};
+     int a[5] = {1, 2, 3, 4, 5};//combination of declaration and initialization
+
+4] DEFINITION OF RELATED CONCEPTS
+memory leaks-A memory leak occurs in a program when the allocated memory is not properly deallocated, leading to a gradual increase 
+in the program's memory usage over time. Memory leaks can happen when dynamic memory is allocated using new or new[], and the corresponding
+delete or delete[] is not called to free up the allocated memory.
+in simple terms,the allocated memory is not released,this is a memory leak.
+To avoid memory leaks, always make sure to pair each dynamic memory allocation with the corresponding deallocation.
+In the case of arrays, use new[] for allocation and delete[] for deallocation.
+-----
+int *arr = new int[10];  // Allocating memory for an array of 10 integers
+
+// Code that uses the allocated array
+
+delete[] arr;  // Deallocating the allocated array
+-----
+By ensuring proper memory management, you can minimize the risk of memory leaks in your programs
