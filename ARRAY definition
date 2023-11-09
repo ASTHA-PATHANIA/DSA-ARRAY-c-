@@ -1,0 +1,4 @@
+An array is a fixed-size sequential collection of elements of same data type in 
+continuous memory location.
+• The elements of an array are referenced by an index (also known as subscript).
+• Types of Arrays: one dimensional and multidimensional.
