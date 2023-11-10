@@ -62,8 +62,6 @@ In the case of arrays, use new[] for allocation and delete[] for deallocation.
 -----
 int *arr = new int[10];  // Allocating memory for an array of 10 integers
 
-// Code that uses the allocated array
-
 delete[] arr;  // Deallocating the allocated array
 -----
 By ensuring proper memory management, you can minimize the risk of memory leaks in your programs
